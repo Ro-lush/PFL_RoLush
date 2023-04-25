@@ -8,7 +8,7 @@ public abstract class AbstractKeywordAnalyzer implements TextAnalyzer {
     public Label processText(String text) {
         String[] key = getKeywords();
         for (int i = 0; i < key.length; i++) {
-            if (key[i].contains(text)){
+            if (text.contains(key[i])){
                 return getLabel();
             }
         }
