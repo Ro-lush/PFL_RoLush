@@ -7,7 +7,8 @@ public class Main {
        line1.Check(line2);
        line2.Check(line2);
 
-      System.out.println(line1.Length()+" " + line2.Length());
+      System.out.println("Длина первой линии: "+line1.Length()+
+              " " +"\n" +"Длина второй линии: "+line2.Length());
 
 
     }
