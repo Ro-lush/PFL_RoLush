@@ -1,15 +1,19 @@
 package Task1;
 
 public class Line {
-    private double point1;
-    private double point2;
+    private double pointХ1;
+    private double pointY1;
+    private double pointХ2;
+    private double pointY2;
 
-    public Line(double point1, double point2) {
-        this.point1 = point1;
-        this.point2 = point2;
+    public Line(double pointХ1, double pointY1, double pointХ2, double pointY2) {
+        this.pointХ1 = pointХ1;
+        this.pointY1 = pointY1;
+        this.pointХ2 = pointХ2;
+        this.pointY2 = pointY2;
     }
 
     public double Length(){
-        return point2-point1;
+        return (pointХ2-pointХ1)+(pointY2-pointY1);
     }
 }
