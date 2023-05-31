@@ -5,7 +5,8 @@ public class Line {
     private double pointY1;
     private double pointХ2;
     private double pointY2;
-    private double length;
+    private boolean length;
+
 
     public Line(double pointХ1, double pointY1, double pointХ2, double pointY2) {
         this.pointХ1 = pointХ1;
@@ -15,12 +16,12 @@ public class Line {
     }
 
     public double Length(){
-        return this.length= (pointХ2-pointХ1)+(pointY2-pointY1);
-
+    double length= Math.pow(pointХ2-pointХ1,2)+Math.pow(pointY2-pointY1,2);
+        return Math.sqrt(length);
     }
 
     public void Check(Line line){
-        this.length= (pointХ2-pointХ1)+(pointY2-pointY1);
+        double length= (pointХ2-pointХ1)+(pointY2-pointY1);
         if (this.length==line.length){
 
             System.out.println("Длина равна");

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "/a/b/c/../d";
+        String str = "/a/b/c/../";
         System.out.println(simplifyPath(str));
 
     }
