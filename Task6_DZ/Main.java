@@ -1,7 +1,6 @@
 package Task6_DZ;
 
 
-import java.sql.Array;
 import java.util.*;
 
 public class Main {
@@ -68,10 +67,10 @@ public class Main {
      Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
 
 
-     /*   Map<String, List<Integer>> salaries = salaryService.getMailBox();
+      Map<String, List<Integer>> salaries = salaryService.getMailBox();
         assert salaries.get(salary1.getTo()).equals(Arrays.asList(1)): "wrong salaries mailbox content (1)";
         assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
         assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
-*/
+
     }
 }

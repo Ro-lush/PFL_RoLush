@@ -4,21 +4,21 @@ package Task6_DZ;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class MailService<T> implements Consumer<MailMessage> {
+public class MailService<T> implements Consumer<NamePer<T>> {
 
 
-    Map<String, List<String>> tListMap = new HashMap<>();
+    Map<String, List<T>> tListMap = new HashMap<>();
 
 
-    public Map<String, List<String>> getMailBox() {
+    public Map<String, List<T>> getMailBox() {
        return tListMap;
     }
 
-    @Override
-    public void accept(MailMessage mailMessage) {
-        List<String> tList = new ArrayList<>();
-        tList.add(mailMessage.getContent());
-        tListMap.put(mailMessage.getTo(),tList);
-    }
 
+    @Override
+    public void accept(NamePer<T> tNamePer) {
+        List<T> tList = new ArrayList<>();
+        tList.add(tNamePer.getContent());
+        tListMap.put(tNamePer.getTo(),tList);
+    }
 }
