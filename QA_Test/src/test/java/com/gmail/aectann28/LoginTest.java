@@ -1,3 +1,4 @@
+/*
 package com.gmail.aectann28;
 
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginTest {
 
  public static void setup(){
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
+        System.setProperty("webdriver.chrome.driver", "/Users/romanlusnikov/IdeaProjects/chromedriver");
         //создание экземпляра драйвера
         WebDriver driver = new ChromeDriver();
         //окно разворачивается на полный экран
@@ -18,3 +19,4 @@ public class LoginTest {
         driver.get(ConfProperties.getProperty("loginpage")); } }
     }
 }
+*/
