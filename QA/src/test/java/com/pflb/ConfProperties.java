@@ -5,29 +5,24 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConfProperties {
-   private static FileInputStream fileInputStream;
-    private static Properties properties;
-
-    {
+    protected static FileInputStream fileInputStream;
+    protected static Properties PROPERTIES;
+    static {
         try {
-            fileInputStream = new FileInputStream("QA/src/test/resources/conf.properties");
-             properties = new Properties();
-            properties.load(fileInputStream);
+            //указание пути до файла с настройками
+            fileInputStream = new FileInputStream("/Users/romanlusnikov/IdeaProjects/PFL_RoLush/QA/src/test/resources/conf.properties");
+            PROPERTIES = new Properties();
+            PROPERTIES.load(fileInputStream);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            //обработка возможного исключения (нет файла и т.п.)
         } finally {
-            if(fileInputStream != null) {
+            if (fileInputStream == null)
                 try {
                     fileInputStream.close();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
+                    e.printStackTrace(); } } }
 
-    }
+    public static String getProperty(String key) {
+        return PROPERTIES.getProperty(key); } }
 
-    public static String getProperty(String text){
-        return properties.getProperty(text);
-    }
-}
