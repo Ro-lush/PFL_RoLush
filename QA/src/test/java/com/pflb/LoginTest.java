@@ -32,6 +32,7 @@ public class LoginTest {
        sortBy.readBtn();
        Thread.sleep(1000);
        sortBy.sortByFirstName();
+       driver.close();
 
     }
 }
