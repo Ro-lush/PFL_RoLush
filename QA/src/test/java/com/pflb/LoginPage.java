@@ -21,6 +21,7 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"root\"]/div/section/div/div/div/div/div/input[2]")
     private WebElement password;
 
+
     public void inputLogin(String login){
         loginField.sendKeys(login);
     }
@@ -29,7 +30,11 @@ public class LoginPage {
         password.sendKeys(pass);
     }
 
+
     public void inputBtn(){
         loginBtn.click();
     }
+
+
+
 }
