@@ -1,26 +1,36 @@
 package com.pflb;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
+
 public class SortBy {
     public WebDriver driver;
+    private int ID=0;
+
+
 
     public SortBy(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    @FindBy(xpath = "//*[@id=\"basic-navbar-nav\"]/div/div[1]")
+    @FindBy(css = "a[id=basic-nav-dropdown]")
     private WebElement userBtn;
 
-    @FindBy(xpath = "//*[@id=\"basic-navbar-nav\"]/div/div[1]/div/a[1]")
+    @FindBy(css = "a[href=\"#/read/users\"]")
     private WebElement readBtn;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/section/div/div/button[4]")
-    private WebElement sortByFirstName;
 
+    @FindBy(css = "#root > div > section > div > div > button:nth-child(3)")
+    private WebElement sortById;
+
+    @FindBy(css = "table tbody tr")
+    private List<WebElement> id;
 
     public void userBtn(){
         userBtn.click();
@@ -30,7 +40,17 @@ public class SortBy {
         readBtn.click();
     }
 
-    public void sortByFirstName(){
-        sortByFirstName.click();
+    public void sortById(){
+       sortById.click();
     }
+
+    private List<WebElement> getUserRowCells(int num) {
+        WebElement tableRow = id.get(num);
+        return tableRow.findElements(By.cssSelector("td"));
+    }
+    public String getUserId(int num) {
+        List<WebElement> tds = getUserRowCells(num);
+        return tds.get(ID).getText();
+    }
+
 }

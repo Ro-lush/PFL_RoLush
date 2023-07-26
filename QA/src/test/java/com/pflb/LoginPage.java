@@ -12,13 +12,13 @@ public class LoginPage {
         PageFactory.initElements(driver,this);
         this.driver=driver;
     }
-    @FindBy(css = " input[type=email]")
+    @FindBy(css = "input[type=email]")
     private WebElement loginField;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/section/div/div/div/div/div/button[1]")
+    @FindBy(css = "button[type=submit]")
     private WebElement loginBtn;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/section/div/div/div/div/div/input[2]")
+    @FindBy(css = "input[type=text]")
     private WebElement password;
 
 
