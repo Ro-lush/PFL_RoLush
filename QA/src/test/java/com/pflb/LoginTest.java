@@ -2,6 +2,7 @@ package com.pflb;
 
 
 
+import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,12 +58,15 @@ public class LoginTest {
         for (int i = 0; i < beforeSort.length; i++) {
             beforeSort[i]= Integer.parseInt(sortBy.getUserId(i));
         }
+
         sortBy.sortById();
         for (int i = 0; i < afterSort.length; i++) {
             afterSort[i]= Integer.parseInt(sortBy.getUserId(i));
         }
+
         if (Arrays.equals(beforeSort,afterSort)){
-            System.out.println("ОШИБКА!!! ТЕСТ ПРОВАЛЕН!!");
+            Assert.fail("ОШИБКА!!! ТЕСТ ПРОВАЛЕН!!");
+
         } else {
             System.out.println("ТЕСТ ПРОЙДЕН!!!");
         }
