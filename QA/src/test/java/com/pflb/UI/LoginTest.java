@@ -1,9 +1,8 @@
-package com.pflb;
+package com.pflb.UI;
 
 
 
 import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;

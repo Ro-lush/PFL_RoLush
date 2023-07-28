@@ -1,4 +1,4 @@
-package com.pflb;
+package com.pflb.UI;
 
 import java.io.IOException;
 import java.io.InputStream;

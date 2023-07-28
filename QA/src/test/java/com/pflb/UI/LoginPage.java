@@ -1,4 +1,4 @@
-package com.pflb;
+package com.pflb.UI;
 
 import io.qameta.allure.Step;
 import org.junit.Test;
