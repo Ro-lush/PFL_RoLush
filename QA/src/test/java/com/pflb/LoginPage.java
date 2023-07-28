@@ -1,5 +1,7 @@
 package com.pflb;
 
+import io.qameta.allure.Step;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,16 +23,16 @@ public class LoginPage {
     @FindBy(css = "input[type=text]")
     private WebElement password;
 
-
+    @Step
     public void inputLogin(String login){
         loginField.sendKeys(login);
     }
-
+    @Step
     public void inputPass(String pass){
         password.sendKeys(pass);
     }
 
-
+    @Step
     public void inputBtn(){
         loginBtn.click();
     }

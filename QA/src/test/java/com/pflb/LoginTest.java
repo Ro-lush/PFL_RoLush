@@ -2,8 +2,11 @@ package com.pflb;
 
 
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Arrays;
 
-
+@ExtendWith(TestSkreenshot.class)
 public class LoginTest {
     public static LoginPage loginPage;
     public static SortBy sortBy;
@@ -37,24 +40,30 @@ public class LoginTest {
 
 
     }
-    @AfterEach
+
     public  void driverQuit() {
+        driver.close();
         driver.quit();
     }
 
    @Test
+
+    @Description("Test login")
     public void loginTest() {
+
       loginPage.inputLogin(ConfProperties.getProperty("login"));
       loginPage.inputPass(ConfProperties.getProperty("password"));
       loginPage.inputBtn();
 
        wait.until(ExpectedConditions.alertIsPresent());
        driver.switchTo().alert().accept();
+       driverQuit();
     }
     @Test
+    @Description("Test sortById")
     public void SortTest(){
         sortBy.userBtn();
-        sortBy.readBtn();
+         sortBy.readBtn();
         for (int i = 0; i < beforeSort.length; i++) {
             beforeSort[i]= Integer.parseInt(sortBy.getUserId(i));
         }
@@ -71,5 +80,6 @@ public class LoginTest {
             System.out.println("ТЕСТ ПРОЙДЕН!!!");
         }
         System.out.println("BeforeSort = "+ Arrays.toString(beforeSort) +" AfterSort = "+ Arrays.toString(afterSort));
+        driverQuit();
     }
 }

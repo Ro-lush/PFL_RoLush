@@ -1,5 +1,6 @@
 package com.pflb;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,22 +33,25 @@ public class SortBy {
     @FindBy(css = "table tbody tr")
     private List<WebElement> id;
 
+
+    @Step
     public void userBtn(){
         userBtn.click();
     }
-
+    @Step
     public void readBtn(){
         readBtn.click();
     }
-
+    @Step
     public void sortById(){
        sortById.click();
     }
-
+    @Step
     private List<WebElement> getUserRowCells(int num) {
         WebElement tableRow = id.get(num);
         return tableRow.findElements(By.cssSelector("td"));
     }
+    @Step
     public String getUserId(int num) {
         List<WebElement> tds = getUserRowCells(num);
         return tds.get(ID).getText();
