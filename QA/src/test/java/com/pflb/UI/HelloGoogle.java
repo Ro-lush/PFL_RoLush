@@ -1,6 +1,7 @@
 package com.pflb.UI;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class HelloGoogle {
     @Test
     @Description("HelloGoole")
+    @Step
     public void openGoole() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

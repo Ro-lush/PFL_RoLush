@@ -67,9 +67,11 @@ public class LoginTest {
     @Test
     @Description("Test sortById")
 
-    public void SortTest(){
+    public void SortTest() throws InterruptedException {
         sortBy.userBtn();
          sortBy.readBtn();
+        wait.withTimeout(Duration.ofMinutes(1));
+
         for (int i = 0; i < beforeSort.length; i++) {
             beforeSort[i]= Integer.parseInt(sortBy.getUserId(i));
         }
