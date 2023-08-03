@@ -1,24 +1,16 @@
 package com.pflb.UI;
 
-import io.qameta.allure.Description;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v115.performance.Performance;
 import org.openqa.selenium.devtools.v115.performance.model.Metric;
 
-
 import java.util.List;
 import java.util.Optional;
 
-public class HelloGoogle {
-    @Test
-    @Description("HelloGoole")
-    public void openGoole() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        ChromeDriver driver = new ChromeDriver(options);
+public class ChromeDevTools {
+    public void performanceMetricsExample() {
+        ChromeDriver driver = new ChromeDriver();
         DevTools devTools = driver.getDevTools();
         devTools.createSession();
         devTools.send(Performance.enable(Optional.empty()));
@@ -27,10 +19,8 @@ public class HelloGoogle {
         driver.get("https://google.com");
         driver.quit();
 
-        for (Metric m : metricList) {
+        for(Metric m : metricList) {
             System.out.println(m.getName() + " = " + m.getValue());
-
-
         }
     }
 }

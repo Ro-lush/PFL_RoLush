@@ -6,4 +6,4 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-QA/src/test/resources/conf.properties
+/QA/src/test/resources/conf.properties

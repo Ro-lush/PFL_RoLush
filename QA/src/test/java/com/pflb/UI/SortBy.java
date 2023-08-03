@@ -32,26 +32,24 @@ public class SortBy {
 
     @FindBy(css = "table tbody tr")
     private List<WebElement> id;
-
-
-    @Step
+@Step("Перейти на вкладку user")
     public void userBtn(){
         userBtn.click();
     }
-    @Step
+@Step("Read all users")
     public void readBtn(){
         readBtn.click();
     }
-    @Step
+@Step("Сортировка по ID")
     public void sortById(){
        sortById.click();
     }
-    @Step
+
     private List<WebElement> getUserRowCells(int num) {
         WebElement tableRow = id.get(num);
         return tableRow.findElements(By.cssSelector("td"));
     }
-    @Step
+
     public String getUserId(int num) {
         List<WebElement> tds = getUserRowCells(num);
         return tds.get(ID).getText();

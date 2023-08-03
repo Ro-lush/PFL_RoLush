@@ -2,7 +2,9 @@ package com.pflb.UI;
 
 
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,8 +22,7 @@ public class LoginTest {
     public static SortBy sortBy;
     public static WebDriver driver;
     public  static WebDriverWait wait;
- //   public static EnvConfig envConfig;
-
+   public static EnvConfig envConfig;
     public static int[] beforeSort = new int[10];
     public static int[] afterSort = new int[10];
 
@@ -31,35 +32,41 @@ public class LoginTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-    driver.get(ConfProperties.getProperty("url"));
-      //  envConfig = new EnvConfig();
-     //   driver.get(envConfig.baseUrl);
+   // driver.get(ConfProperties.getProperty("url"));
+       envConfig = new EnvConfig();
+       driver.get(envConfig.baseUrl);
         loginPage = new LoginPage(driver);
         sortBy = new SortBy(driver);
 
 
     }
-
+//@AfterEach
     public  void driverQuit() {
         driver.close();
         driver.quit();
     }
 
    @Test
-
     @Description("Test login")
+
     public void loginTest() {
 
-      loginPage.inputLogin(ConfProperties.getProperty("login"));
-      loginPage.inputPass(ConfProperties.getProperty("password"));
+//      loginPage.inputLogin(ConfProperties.getProperty("login"));
+//      loginPage.inputPass(ConfProperties.getProperty("password"));
+
+       loginPage.inputLogin(envConfig.username);
+       loginPage.inputPass(envConfig.userPassword);
       loginPage.inputBtn();
 
        wait.until(ExpectedConditions.alertIsPresent());
        driver.switchTo().alert().accept();
+
        driverQuit();
+
     }
     @Test
     @Description("Test sortById")
+
     public void SortTest(){
         sortBy.userBtn();
          sortBy.readBtn();

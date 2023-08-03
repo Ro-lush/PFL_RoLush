@@ -23,16 +23,16 @@ public class LoginPage {
     @FindBy(css = "input[type=text]")
     private WebElement password;
 
-    @Step
+@Step("InputLogin")
     public void inputLogin(String login){
         loginField.sendKeys(login);
     }
-    @Step
+    @Step("InputPass")
     public void inputPass(String pass){
         password.sendKeys(pass);
     }
 
-    @Step
+@Step("clickBtn")
     public void inputBtn(){
         loginBtn.click();
     }
