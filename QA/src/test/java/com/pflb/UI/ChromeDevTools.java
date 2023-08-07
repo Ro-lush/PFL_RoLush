@@ -19,8 +19,6 @@ public class ChromeDevTools {
         driver.get("https://google.com");
         driver.quit();
 
-        for(Metric m : metricList) {
-            System.out.println(m.getName() + " = " + m.getValue());
-        }
+
     }
 }

@@ -2,9 +2,8 @@ package com.pflb.UI;
 
 
 
-import io.qameta.allure.Allure;
+
 import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 @ExtendWith(TestSkreenshot.class)
 public class LoginTest {
@@ -32,6 +32,7 @@ public class LoginTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
    // driver.get(ConfProperties.getProperty("url"));
        envConfig = new EnvConfig();
        driver.get(envConfig.baseUrl);
@@ -67,10 +68,9 @@ public class LoginTest {
     @Test
     @Description("Test sortById")
 
-    public void SortTest() throws InterruptedException {
+    public void SortTest() {
         sortBy.userBtn();
          sortBy.readBtn();
-        wait.withTimeout(Duration.ofMinutes(1));
 
         for (int i = 0; i < beforeSort.length; i++) {
             beforeSort[i]= Integer.parseInt(sortBy.getUserId(i));
@@ -89,5 +89,10 @@ public class LoginTest {
         }
         System.out.println("BeforeSort = "+ Arrays.toString(beforeSort) +" AfterSort = "+ Arrays.toString(afterSort));
         driverQuit();
+
+
     }
+
+
+
 }

@@ -3,7 +3,6 @@ package com.pflb.API;
 
 import com.pflb.UI.EnvConfig;
 import io.restassured.http.ContentType;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -34,7 +33,6 @@ EnvConfig envConfig = new EnvConfig();
                 .get(envConfig.apiUrl+"/users")
                 .then().log().all()
                .extract().body().jsonPath().getList("$", User.class);
-             //   .extract().body().jsonPath().getList("$");
 
 
     }

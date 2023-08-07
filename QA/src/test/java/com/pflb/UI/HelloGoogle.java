@@ -2,6 +2,7 @@ package com.pflb.UI;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,9 +15,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class HelloGoogle {
+    public String timestamp;
     @Test
     @Description("HelloGoole")
-    @Step
+    @Step()
     public void openGoole() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -30,9 +32,14 @@ public class HelloGoogle {
         driver.quit();
 
         for (Metric m : metricList) {
-            System.out.println(m.getName() + " = " + m.getValue());
-
-
+            if (m.getName().equals("Timestamp")){
+             timestamp=m.getName() + " = " + m.getValue();
+            }
         }
+       metricTimeSpeedPage(timestamp);
+    }
+    @Step
+    public void metricTimeSpeedPage(String name){
+        Assert.assertNotEquals(name,null);
     }
 }
